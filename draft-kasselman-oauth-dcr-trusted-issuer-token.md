@@ -30,7 +30,7 @@ author:
     email: "90690777+PieterKas@users.noreply.github.com"
 
 normative:
- rfc7591: # OAuth 2.0 Dynamic Client Registration Protocol
+ RFC7591: # OAuth 2.0 Dynamic Client Registration Protocol
  RFC6749: # The OAuth 2.0 Authorization Framework
  SPIFFE:
    title: SPIFFE
