@@ -32,12 +32,12 @@ Abstract
    Dynamic Client Registration Protocol [RFC7591] defines a software
    statement that includes metadata about the client and is signed by a
    developer or trusted third party.  This specification describes the
-   use of commonly deployed third party credentials issued to workloads
-   and applications as Software Statements.  The specification describes
-   two types of credentials that may be used as Software Statements.
-   The first is Secure Production Identity Framework For Everyone
-   (SPIFFE) credentials.  The second is the use of JWT representation of
-   a Verifiable Credentials [VC-JWT]
+   use of specific third party credentials issued to workloads and
+   applications as software statements.  The specification describes two
+   types of credentials that may be used as software statements.  The
+   first is Secure Production Identity Framework For Everyone (SPIFFE)
+   credentials.  The second is the use of JWT representation of a
+   Verifiable Credentials [VC-JWT]
 
 About This Document
 
@@ -95,7 +95,10 @@ Table of Contents
    1.  Introduction
    2.  Conventions and Definitions
    3.  Overview
-     3.1.  Protocol Flow
+     3.1.  Secure Production Identity Framework For Everyone (SPIFFE)
+     3.2.  Verifiable Credentials (VC)
+     3.3.  SPIFFE and VC Deployment Models
+     3.4.  Protocol Flow
    4.  Issuer and Client Registration Endpoint Trust Relationship
      4.1.  SPIFFE Issuer and Client Registration Endpoint Trust
            Relationship
@@ -117,15 +120,16 @@ Table of Contents
    protocol standard that enables applications to obtain limited access
    to user resources.  OAuth clients must be registered with the OAuth
    authorization server, which poses significant operational challenges
-   in dynamically scaling environments.  Manual registration is common,
-   but is costly, difficult to scale and hard to maintain throughout the
-   lifecycle of a client.  These challenges are exacerbated by the
-   increasingly dynamic nature of modern cloud native workloads that are
-   instantiated as needed.  Emeging protocols like Model Context
-   Prototol (MCP) requires clients to register with an authorization
-   server, but these clients may not always have a predefined
-   relationship with the authorization server, and similar to modern
-   cloud native workloads, may be ephemeral in nature.
+   in dynamically scaling environments.  Manual registration and
+   subsequent lifecycle management is common, but is costly, difficult
+   to scale and hard to maintain throughout the lifecycle of a client.
+   These challenges are exacerbated by the increasingly dynamic nature
+   of modern cloud native workloads that are instantiated as needed.  In
+   adddition, emeging protocols like Model Context Prototol (MCP)
+   requires clients to register with an authorization server, but these
+   clients may not always have a predefined relationship with the
+   authorization server, and similar to modern cloud native workloads,
+   may be ephemeral in nature.
 
    [RFC7591] defines a mechansims for dynamic client registration that
    removes the need for manual registration.  This provides a more
@@ -137,9 +141,10 @@ Table of Contents
    metadata values about the client that is signed by a developer or
    trusted third party.
 
-   This specification describes the use of commonly deployed third party
-   credentials issued to workloads and applications as software
-   statements as part of dynamic client registration.
+   This specification describes the use of SPIFFE JWT-SVIDs and
+   Verifiable Credeentials as software statements that can be submitted
+   as software statements when using OAuth 2.0 Dynamic Client
+   Registration Protocol [RFC7591].
 
 2.  Conventions and Definitions
 
@@ -154,6 +159,8 @@ Table of Contents
    This specification describes the use of two credential types as
    software statements, namely SPIFFE credentials and Verifiable
    Credentials.
+
+3.1.  Secure Production Identity Framework For Everyone (SPIFFE)
 
    The Secure Production Identity Framework For Everyone (SPIFFE) is a
    graduated Cloud Native Compute Foundation project designed to
@@ -180,16 +187,18 @@ Table of Contents
    of additional secrets proliferation, reduces the overheads of seuring
    and managing secrets and improves the overall risk posture.
 
+3.2.  Verifiable Credentials (VC)
+
    A Verifiable Credential (VC) is a tamper-evident digital assertion
    made by an issuer about a subject, which can be cryptographically
    verified by a third party.  VCs follow an issuer–holder–verifier
    model where the issuer creates and signs the credential, the holder
    stores and presents it, and the verifier checks its authenticity and
-   validity.  VCs can be represented as a JSON Web Token (JWT).  A VC
-   can serve as a software statement in dynamic client registration by
-   including metadata as defined in Section 2 of [RFC7591] about the
-   client as additional claims in the VC.  Workloads that are
-   provisioned with VCs presents these credentials as software
+   validity.  VCs can be represented as a JSON Web Token (JWT) [VC-JWT].
+   A VC encoded as a JWT can serve as a software statement in dynamic
+   client registration by including metadata as defined in Section 2 of
+   [RFC7591] about the client as additional claims in the VC.  Workloads
+   that are provisioned with VCs presents these credentials as software
    statements when using Dynamic Client Registration.  The registration
    endpoint is configured to trust the VC issuer and can verify the VC
    and use the additional metadata claims included by the issuer.  Upon
@@ -199,19 +208,23 @@ Table of Contents
    is up to the authorization server to make a risk based decision on
    which authentication methods to use.
 
+3.3.  SPIFFE and VC Deployment Models
+
    SPIFFE and VC address different deployment models.  SPIFFE is more
    commonly deployed within large enterprise compute environments and
    provides high levels of assurance about a workload identity (in this
    case an OAuth client) along with a highly robust, low latency
-   provsioning pipeline with built in credential lifecycel management.
-   It is commonly deployed as an alternative to managing secrets.  VCs
-   provide an option for clients that are deployed outside an enterprise
-   where SPIFFE is not deployed.  These clients use VC issuance
-   protocols to obtain VCs.  The use of these protocols or any
+   provsioning pipeline with built in credential lifecycel management to
+   maximise availability.  It is commonly deployed as an alternative to
+   managing secrets.
+
+   VCs provide an option for clients that are deployed outside an
+   enterprise where SPIFFE is not deployed.  These clients use VC
+   issuance protocols to obtain VCs.  The use of these protocols or any
    attstation that needs to be provided is out of scope for this
    specification.
 
-3.1.  Protocol Flow
+3.4.  Protocol Flow
 
    +-------------+ (A) Client Registration Endpoint Establishes
    |   SPIFFE    |     Trust with SPIFFE or VC Issuer
@@ -234,12 +247,13 @@ Table of Contents
    |           |        or Client Error Response      +---------------+
    +-----------+
 
-   Figure 1: Dynamic Client Registration Flow with Software Statement
+   Figure 1: Abstracted Dynamic Client Registration Flow with Software
+   Statement
 
-   The OAuth 2.0 client dynamic registration flow illustrated in
-   Figure 1 describes the interaction between the client and the dynamic
-   client registration endpoint defined in [RFC7591].  It includes the
-   following steps:
+   The OAuth 2.0 Client Dynamic Registration flow illustrated in
+   Figure 1 describes the interaction between the SPIFFE or VC issuers,
+   the client and the client registration endpoint defined in [RFC7591].
+   It includes the following steps:
 
    *  (A) The client registration endpoint establishes a trust
       relationship with the SPIFFE or VC Issuer.  Once trust is
