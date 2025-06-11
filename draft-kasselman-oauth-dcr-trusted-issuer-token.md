@@ -42,11 +42,11 @@ normative:
     title: JWT-SVID
     target: https://github.com/spiffe/spiffe/blob/main/standards/JWT-SVID.md
  VC-JWT:
-   title: "Securing Verifiable Credentials using JSON Web Tokens"
-   author:
-      - name: Brent Zundel
-      - name: Orie Steele
-      - name: Kristina Yasuda
+    title: "Securing Verifiable Credentials using JSON Web Tokens"
+    author:
+       - name: Brent Zundel
+       - name: Orie Steele
+       - name: Kristina Yasuda
     date: 2023-06-14
     status: "W3C Working Draft"
     target: https://www.w3.org/TR/vc-jwt/
