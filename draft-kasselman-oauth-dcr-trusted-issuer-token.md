@@ -31,7 +31,7 @@ author:
 
 normative:
  rfc7591: # OAuth 2.0 Dynamic Client Registration Protocol
- RFC6749: # 
+ RFC6749: # The OAuth 2.0 Authorization Framework
  SPIFFE:
    title: SPIFFE
    target: https://github.com/spiffe/spiffe/blob/main/standards/SPIFFE.md
@@ -64,11 +64,9 @@ In order for an OAuth 2.0 {{RFC6749}} client to utilize an OAuth 2.0 authorizati
 # Introduction
 The OAuth framework {{RFC6749}} is a widely deployed authorization protocol standard that enables applications to obtain limited access to user resources. OAuth clients must be registered with the OAuth authorization server, which poses significant operational challenges in dynamically scaling environments. Manual registration is common, but is costly, difficult to scale and hard to maintain throughout the lifecycle of a client. These challenges are exacerbated by the increasingly dynamic nature of modern cloud native workloads that are instantiated as needed. Emeging protocols like Model Context Prototol (MCP) requires clients to register with an authorization server, but these clients may not always have a predefined relationship with the authorization server, and similar to modern cloud native workloads, may be ephemeral in nature.
 
-{{RFC7591}} defines a mechansims for dynamic client registration that removes the need for manual registration. This provides a more scalable mechanism that can be used by clients that do not have a pre-existing relationship with an authorization server, or where manually configuring such relationships is prohibitive from a cost and scale perspective. It defines the concept of a software statement, which is a JSON Web Token (JWT) {{RFC7519}} that asserts metadata values about the client that is signed by a developer or trusted third party. 
+{{RFC7591}} defines a mechansims for dynamic client registration that removes the need for manual registration. This provides a more scalable mechanism that can be used by clients that do not have a pre-existing relationship with an authorization server, or where manually configuring such relationships is prohibitive from a cost and scale perspective. It defines the concept of a software statement, which is a JSON Web Token (JWT) {{RFC7519}} that asserts metadata values about the client that is signed by a developer or trusted third party.
 
 This specification describes the use of commonly deployed third party credentials issued to workloads and applications as software statements as part of dynamic client registration.
-
-
 
 
 # Conventions and Definitions
@@ -89,7 +87,7 @@ SPIFFE and VC address different deployment models. SPIFFE is more commonly deplo
     +-------------+ (A) Client Registration Endpoint Establishes
     |   SPIFFE    |     Trust with SPIFFE or VC Issuer
     |     or      |
-    |     VC      |    
+    |     VC      |
     |   Issuer    |<------------------------------------------+
     +-------------+                                           |
            ^                                                  |
@@ -135,15 +133,14 @@ TODO VC specific processing
 
 # Security Considerations
 
-## Client secrets
-Dynamic client registration is designed to increase the ease with which clients are registered in large scale deployments. The increased use of client secrets amplifies the risks of secret theft and information compromise. This risk is further amplified is those secrets are long lived or infrequently rotated. Clients that are provisioned with SPIFFE JWT-SVIDs or X.509-SVIDs, and use this specification MUST use them not only as software statements, but also when authenticating to the authorization server in subsequent OAuth flows. 
+## Client Secrets
+Dynamic client registration is designed to increase the ease with which clients are registered in large scale deployments. The increased use of client secrets amplifies the risks of secret theft and information compromise. This risk is further amplified is those secrets are long lived or infrequently rotated. Clients that are provisioned with SPIFFE JWT-SVIDs or X.509-SVIDs, and use this specification MUST use them not only as software statements, but also when authenticating to the authorization server in subsequent OAuth flows.
 
 The use of VCs as client authentication mechansims in OAuth is undefine. Consequently, when using VCs as software statements, the authorization server MAY provision additional credentials, but SHOULD avoid provisioning client secrets to limit the risks of secret proliferation and the consequences of secret theft.
 
 # IANA Considerations
 
 This document has no IANA actions.
-
 
 --- back
 
