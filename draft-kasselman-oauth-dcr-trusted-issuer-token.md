@@ -57,7 +57,7 @@ normative:
  SPIFFE-OAUTH-CLIENT-AUTH:
     title: OAuth SPIFFE Client Authentication
     target: foo
-    
+
 informative:
 
 ...
