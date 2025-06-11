@@ -30,6 +30,7 @@ author:
     email: "90690777+PieterKas@users.noreply.github.com"
 
 normative:
+ RFC7519:
  RFC7591: # OAuth 2.0 Dynamic Client Registration Protocol
  RFC6749: # The OAuth 2.0 Authorization Framework
  SPIFFE:
@@ -41,6 +42,9 @@ normative:
  SPIFFE_JWT:
     title: JWT-SVID
     target: https://github.com/spiffe/spiffe/blob/main/standards/JWT-SVID.md
+ SPIFFE_ID:
+    title: SPIFFE-ID
+    target: https://github.com/spiffe/spiffe/blob/main/standards/SPIFFE-ID.md
  VC-JWT:
     title: "Securing Verifiable Credentials using JSON Web Tokens"
     author:
@@ -50,7 +54,10 @@ normative:
     date: 2023-06-14
     status: "W3C Working Draft"
     target: https://www.w3.org/TR/vc-jwt/
-
+ SPIFFE-OAUTH-CLIENT-AUTH:
+    title: OAuth SPIFFE Client Authentication
+    target: foo
+    
 informative:
 
 ...
