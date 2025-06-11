@@ -35,10 +35,10 @@ normative:
  SPIFFE:
    title: SPIFFE
    target: https://github.com/spiffe/spiffe/blob/main/standards/SPIFFE.md
-  SPIFFE_X509:
+ SPIFFE_X509:
     title: X509-SVID
     target: https://github.com/spiffe/spiffe/blob/main/standards/X509-SVID.md
-  SPIFFE_JWT:
+ SPIFFE_JWT:
     title: JWT-SVID
     target: https://github.com/spiffe/spiffe/blob/main/standards/JWT-SVID.md
  VC-JWT:
