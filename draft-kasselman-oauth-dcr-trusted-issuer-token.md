@@ -130,7 +130,7 @@ SPIFFE makes provision for multiple Trust Domains, which are represented in the 
 TODO - Describe how trust relationship is established between VC Issuer and client registration endpoint.
 
 # Client Registration Endpoint Processing
-TODO processing rules for the client registration endpoint. 
+TODO processing rules for the client registration endpoint.
 
 ## SPIFFE JWT-SVIDs
 TODO SPIFFE specific processing
