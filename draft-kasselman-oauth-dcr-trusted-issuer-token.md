@@ -27,7 +27,10 @@ author:
  -
     fullname: "Pieter Kasselman"
     organization: SPIRL
-    email: "90690777+PieterKas@users.noreply.github.com"
+    email: "pieter@spirl.com"
+    fullname: "Ismael Kazzouzi"
+    organization: SPIRL
+    email: "ismael@spirl.com"
 
 normative:
  RFC7519:
