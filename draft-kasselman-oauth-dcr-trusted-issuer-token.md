@@ -177,7 +177,6 @@ Dynamic client registration is designed to increase the ease with which clients 
 
 The use of VCs as client authentication mechansims in OAuth is undefine. Consequently, when using VCs as software statements, the authorization server MAY provision additional credentials, but SHOULD avoid provisioning client secrets to limit the risks of secret proliferation and the consequences of secret theft.
 
-
 # IANA Considerations
 
 This document has no IANA actions.
