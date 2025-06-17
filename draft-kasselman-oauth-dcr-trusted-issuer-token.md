@@ -67,7 +67,7 @@ informative:
 
 --- abstract
 
-An OAuth 2.0 client requires specific information to interact with an authorization server, including a client identifier issued by that server. The OAuth 2.0 Dynamic Client Registration Protocol {{RFC7591}} defines a mechansim for dynamic client registration that removes the need for manual registration. This provides a more scalable mechanism that can be used by clients that do not have a pre-existing relationship with an authorization server, or where manually configuring such relationships is prohibitive from a cost and scale perspective. Examples of deployments that benefit from dynamic client registration includes modern cloud architectures where microservices are created on demand to meet scale requirements or for use with emerging protocols like the Model Context Protocol (MCP) {{MCP}} which requires clients to register with an authorization server even if they do not have a predefined relationship with the authorization server. Similar to modern cloud native workloads, MCP service integrations may be ephemeral in nature. The OAuth 2.0 Dynamic Client Registration Protocol {{RFC7591}} defines a software statement that includes metadata about the client and is signed by a developer or trusted third party. This specification describes the use of specific third party credentials issued to workloads and applications as software statements. The specification integrates the Secure Production Identity Framework For Everyone (SPIFFE) credentials and Verifiable Credentials {{VC-JWT}} into OAuth 2.0 Dynamic Client Registration, enabling automated and secure client provisioning. It boosts scalability and strengthens security through robust attestation and credential management.
+An OAuth 2.0 client requires specific information to interact with an authorization server, including a client identifier issued by that server. The OAuth 2.0 Dynamic Client Registration Protocol {{RFC7591}} defines a mechansim for dynamic client registration that removes the need for manual registration. This provides a more scalable mechanism that can be used by clients that do not have a pre-existing relationship with an authorization server, or where manually configuring such relationships is prohibitive from a cost and scale perspective. Examples of deployments that benefit from dynamic client registration includes modern cloud architectures where microservices are created on demand to meet scale requirements or for use with emerging protocols like the Model Context Protocol (MCP) {{MCP}} which requires clients to register with an authorization server even if they do not have a predefined relationship with the authorization server. Similar to modern cloud native workloads, MCP service integrations may be ephemeral in nature. The OAuth 2.0 Dynamic Client Registration Protocol {{RFC7591}} defines a software statement that includes metadata about the client and is signed by a developer or trusted third party. This specification describes the use of specific third party credentials issued to workloads and applications as software statements. The specification describes two types of credentials that may be used as software statements. The first is Secure Production Identity Framework For Everyone (SPIFFE) credentials. The second is the use of JWT representation of a Verifiable Credentials {{VC-JWT}}
 
 --- middle
 
@@ -136,33 +136,6 @@ SPIFFE makes provision for multiple Trust Domains, which are represented in the 
 ## Verifiable Credentials and Client Registration Endpoint Trust Relationship
 To validate Verifiable Credentials (VCs) during dynamic client registration, the client registration endpoint MUST be configured to trust the VC issuer’s public keys or a certificate chain anchored in a trusted root. This trust may be established statically or through a dynamic trust discovery mechanism. The registration endpoint SHOULD periodically refresh or revalidate the issuer’s key material against a trusted source to ensure ongoing integrity.
 When a client presents a VC, the registration endpoint verifies its signature using the trusted key material. It MAY also perform additional validation steps, such as checking the issuer’s identity, validating the credential’s expiration, and evaluating its revocation status using mechanisms such as decentralized revocation registries or issuer-specific status endpoints.
-The validation steps for Verifiable Credentials during dynamic client registration are illustrated in the following diagram:
-
-```text
-+-----------------------+          +-------------------------+
-|       Client          |          |   Registration Endpoint |
-+-----------------------+          +-------------------------+
-            |                                 |
-            |   Presents Verifiable Credential |
-            |--------------------------------->|
-            |                                 |
-            |       Trusts issuer's public key|
-            |<--------------------------------|
-            |                                 |
-            |                                 |-- Validate VC Signature
-            |                                 |-- Validate Issuer Identity
-            |                                 |-- Check Expiration
-            |                                 |-- Check Revocation Status
-            |                                 |
-            |                Validation Result|
-            |<--------------------------------|
-            |                                 |
-   +---------------------+        +--------------------------+
-   | Client Registered   |        |  Registration Rejected   |
-   |   Successfully      |        |     (Invalid VC)         |
-   +---------------------+        +--------------------------+
-```
-Figure 2: Verifiable Credential Validation During Dynamic Client Registration
 
 # Client Registration Endpoint Processing
 The client registration endpoint MUST process software statements (e.g., SPIFFE JWT-SVIDs or Verifiable Credentials) as follows:
@@ -203,15 +176,6 @@ Optionally, upon successful validation, the registration endpoint MAY provision 
 Dynamic client registration is designed to increase the ease with which clients are registered in large scale deployments. The increased use of client secrets amplifies the risks of secret theft and information compromise. This risk is further amplified if those secrets are long lived or infrequently rotated. Clients that are provisioned with SPIFFE JWT-SVIDs or X.509-SVIDs, and use this specification MUST use them not only as software statements, but also when authenticating to the authorization server in subsequent OAuth flows.
 
 The use of VCs as client authentication mechansims in OAuth is undefine. Consequently, when using VCs as software statements, the authorization server MAY provision additional credentials, but SHOULD avoid provisioning client secrets to limit the risks of secret proliferation and the consequences of secret theft.
-
-## SPIFFE and VCs
-The integration of SPIFFE and VCs into dynamic client registration significantly enhances security by providing strong cryptographic proofs of client identity. However, potential risks exist, particularly related to misconfiguration or misuse of these credentials. To mitigate these risks, implementers SHOULD:
-- Securely manage cryptographic keys used by SPIFFE and VC issuers, ensuring limited access and robust auditing.
-- Perform regular credential validity checks appropriate for SPIFFE and Verifiable Credentials (VCs), using mechanisms such as trust bundle rotation, short-lived credential expiration, decentralized revocation registries, or issuer-specific status endpoints.
-- Enforce strict credential rotation policies and expiration checks to prevent credential misuse or compromise.
-- Validate all credential claims rigorously, rejecting improperly formed, expired, or revoked credentials promptly.
-
-Following these best practices helps ensure the security and integrity of dynamic client registration workflows.
 
 
 # IANA Considerations
