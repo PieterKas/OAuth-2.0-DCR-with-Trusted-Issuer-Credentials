@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-15T01:57:06.666687+00:00",
+  "timestamp": "2025-06-17T01:48:23.104789+00:00",
   "repo": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
   "labels": [
     {
@@ -50,5 +50,32 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOO4aFus6azAX5",
+      "title": "Added edits and completed a couple of sections",
+      "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/pull/1",
+      "state": "OPEN",
+      "author": "issykazz",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Added edits and completed a couple of sections",
+      "createdAt": "2025-06-16T22:28:15Z",
+      "updatedAt": "2025-06-16T22:28:15Z",
+      "baseRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
+      "baseRefName": "main",
+      "baseRefOid": "d80b79e9a25850776400c8c81b5775bc1e9940fe",
+      "headRepository": "issykazz/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
+      "headRefName": "ismael/edits",
+      "headRefOid": "3c87397f56c4b33ce0acf129202a7c2caf165bfe",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
