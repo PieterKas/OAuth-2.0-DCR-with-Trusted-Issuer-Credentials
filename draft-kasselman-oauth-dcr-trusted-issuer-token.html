@@ -7,7 +7,7 @@
 <title>OAuth 2.0 Dynamic Client Registration with Trusted Issuer Credentials</title>
 <meta content="Ismael Kazzouzi" name="author">
 <meta content="
-       An OAuth 2.0 client requires specific information to interact with an authorization server, including a client identifier issued by that server. The OAuth 2.0 Dynamic Client Registration Protocol   defines a mechansims for dynamic client registration that removes the need for manual registration. This provides a more scalable mechanism that can be used by clients that do not have a pre-existing relationship with an authorization server, or where manually configuring such relationships is prohibitive from a cost and scale perspective. Examples of deployments that benefit from dynamic client registration includes modern cloud architectures where microservices are created on demand to meet scale requirements or for use with emerging protocols like the Model Context Protocol (MCP)   which requires clients to register with an authorization server even if they do not have a predefined relationship with the authorization server. Similar to modern cloud native workloads, MCP service integrations may be ephemeral in nature. The OAuth 2.0 Dynamic Client Registration Protocol   defines a software statement that includes metadata about the client and is signed by a developer or trusted third party. This specification describes the use of specific third party credentials issued to workloads and applications as software statements. The specification describes two types of credentials that may be used as software statements. The first is Secure Production Identity Framework For Everyone (SPIFFE) credentials. The second is the use of JWT representation of a Verifiable Credentials  
+       An OAuth 2.0 client requires specific information to interact with an authorization server, including a client identifier issued by that server. The OAuth 2.0 Dynamic Client Registration Protocol   defines a mechansim for dynamic client registration that removes the need for manual registration. This provides a more scalable mechanism that can be used by clients that do not have a pre-existing relationship with an authorization server, or where manually configuring such relationships is prohibitive from a cost and scale perspective. Examples of deployments that benefit from dynamic client registration includes modern cloud architectures where microservices are created on demand to meet scale requirements or for use with emerging protocols like the Model Context Protocol (MCP)   which requires clients to register with an authorization server even if they do not have a predefined relationship with the authorization server. Similar to modern cloud native workloads, MCP service integrations may be ephemeral in nature. The OAuth 2.0 Dynamic Client Registration Protocol   defines a software statement that includes metadata about the client and is signed by a developer or trusted third party. This specification describes the use of specific third party credentials issued to workloads and applications as software statements. The specification describes two types of credentials that may be used as software statements. The first is Secure Production Identity Framework For Everyone (SPIFFE) credentials. The second is the use of JWT representation of a Verifiable Credentials  
     " name="description">
 <meta content="xml2rfc 3.28.1" name="generator">
 <meta content="dynamic client registration" name="keyword">
@@ -1081,7 +1081,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">OAuth 2.0 Dynamic Client Registration with Trusted Issuer Credentials</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">An OAuth 2.0 client requires specific information to interact with an authorization server, including a client identifier issued by that server. The OAuth 2.0 Dynamic Client Registration Protocol <span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span> defines a mechansims for dynamic client registration that removes the need for manual registration. This provides a more scalable mechanism that can be used by clients that do not have a pre-existing relationship with an authorization server, or where manually configuring such relationships is prohibitive from a cost and scale perspective. Examples of deployments that benefit from dynamic client registration includes modern cloud architectures where microservices are created on demand to meet scale requirements or for use with emerging protocols like the Model Context Protocol (MCP) <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> which requires clients to register with an authorization server even if they do not have a predefined relationship with the authorization server. Similar to modern cloud native workloads, MCP service integrations may be ephemeral in nature. The OAuth 2.0 Dynamic Client Registration Protocol <span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span> defines a software statement that includes metadata about the client and is signed by a developer or trusted third party. This specification describes the use of specific third party credentials issued to workloads and applications as software statements. The specification describes two types of credentials that may be used as software statements. The first is Secure Production Identity Framework For Everyone (SPIFFE) credentials. The second is the use of JWT representation of a Verifiable Credentials <span>[<a href="#VC-JWT" class="cite xref">VC-JWT</a>]</span><a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">An OAuth 2.0 client requires specific information to interact with an authorization server, including a client identifier issued by that server. The OAuth 2.0 Dynamic Client Registration Protocol <span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span> defines a mechansim for dynamic client registration that removes the need for manual registration. This provides a more scalable mechanism that can be used by clients that do not have a pre-existing relationship with an authorization server, or where manually configuring such relationships is prohibitive from a cost and scale perspective. Examples of deployments that benefit from dynamic client registration includes modern cloud architectures where microservices are created on demand to meet scale requirements or for use with emerging protocols like the Model Context Protocol (MCP) <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> which requires clients to register with an authorization server even if they do not have a predefined relationship with the authorization server. Similar to modern cloud native workloads, MCP service integrations may be ephemeral in nature. The OAuth 2.0 Dynamic Client Registration Protocol <span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span> defines a software statement that includes metadata about the client and is signed by a developer or trusted third party. This specification describes the use of specific third party credentials issued to workloads and applications as software statements. The specification describes two types of credentials that may be used as software statements. The first is Secure Production Identity Framework For Everyone (SPIFFE) credentials. The second is the use of JWT representation of a Verifiable Credentials <span>[<a href="#VC-JWT" class="cite xref">VC-JWT</a>]</span><a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1185,10 +1185,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-client-registration-endpoin" class="internal xref">Client Registration Endpoint Processing</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-spiffe-jwt-svids" class="internal xref">SPIFFE JWT-SVIDs</a></p>
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-spiffe-jwt-svids-processing" class="internal xref">SPIFFE JWT-SVIDs Processing by Client Registration Endpoint</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-vcs" class="internal xref">VCs</a></p>
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-vcs-processing-by-client-re" class="internal xref">VCs Processing by Client Registration Endpoint</a></p>
 </li>
             </ul>
 </li>
@@ -1221,9 +1221,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">The OAuth framework <span>[<a href="#RFC6749" class="cite xref">RFC6749</a>]</span> is a widely deployed authorization protocol standard that enables applications to obtain limited access to user resources. OAuth clients must be registered with the OAuth authorization server, which poses significant operational challenges in dynamically scaling environments. Manual registration and subsequent lifecycle management is common, but is costly, difficult to scale and hard to maintain throughout the lifecycle of a client. These challenges are exacerbated by the increasingly dynamic nature of modern cloud native workloads that are instantiated as needed. In adddition, emeging protocols like Model Context Prototol (MCP) requires clients to register with an authorization server, but these clients may not always have a predefined relationship with the authorization server, and similar to modern cloud native workloads, may be ephemeral in nature.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2"><span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span> defines a mechansims for dynamic client registration that removes the need for manual registration. This provides a more scalable mechanism that can be used by clients that do not have a pre-existing relationship with an authorization server, or where manually configuring such relationships is prohibitive from a cost and scale perspective. It defines the concept of a software statement, which is a JSON Web Token (JWT) <span>[<a href="#RFC7519" class="cite xref">RFC7519</a>]</span> that asserts metadata values about the client that is signed by a developer or trusted third party.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">This specification describes the use of SPIFFE JWT-SVIDs and Verifiable Credeentials as software statements that can be submitted as software statements when using OAuth 2.0 Dynamic Client Registration Protocol <span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-1">The OAuth framework <span>[<a href="#RFC6749" class="cite xref">RFC6749</a>]</span> is a widely deployed authorization protocol standard that enables applications to obtain limited access to user resources. OAuth clients must be registered with the OAuth authorization server, which poses significant operational challenges in dynamically scaling environments. Manual registration and subsequent lifecycle management is common, but is costly, difficult to scale and hard to maintain throughout the lifecycle of a client. These challenges are exacerbated by the increasingly dynamic nature of modern cloud native workloads that are instantiated as needed. In addition, emerging protocols like Model Context Protocol (MCP) requires clients to register with an authorization server, but these clients may not always have a predefined relationship with the authorization server, and similar to modern cloud native workloads, may be ephemeral in nature.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2"><span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span> defines a mechansim for dynamic client registration that removes the need for manual registration. This provides a more scalable mechanism that can be used by clients that do not have a pre-existing relationship with an authorization server, or where manually configuring such relationships is prohibitive from a cost and scale perspective. It defines the concept of a software statement, which is a JSON Web Token (JWT) <span>[<a href="#RFC7519" class="cite xref">RFC7519</a>]</span> that asserts metadata values about the client that is signed by a developer or trusted third party.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">This specification describes the use of SPIFFE JWT-SVIDs and Verifiable Credentials as software statements that can be submitted as software statements when using OAuth 2.0 Dynamic Client Registration Protocol <span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1248,7 +1248,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-secure-production-identity-">
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-secure-production-identity-" class="section-name selfRef">Secure Production Identity Framework For Everyone (SPIFFE)</a>
         </h3>
-<p id="section-3.1-1">The Secure Production Identity Framework For Everyone (SPIFFE) is a graduated Cloud Native Compute Foundation project designed to dynamically attest and verify workload identity (see <span>[<a href="#SPIFFE" class="cite xref">SPIFFE</a>]</span>. SPIFFE is commonly deployed to support large scale deployment of workloads in enterprise and cloud native compute environments. It ensures that every workload is attested and issued with X.509-SVID <span>[<a href="#SPIFFE_X509" class="cite xref">SPIFFE_X509</a>]</span> and JWT-SVID <span>[<a href="#SPIFFE_JWT" class="cite xref">SPIFFE_JWT</a>]</span> credentials. JWT-SVIDs contains a minimal set of claims, but may be extended to include additional claims, including those defined in the Dynamic Client Registration specification (see Section 2 of <span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span>). A SPIFFE issuer may attest a workload, add additional metadata based on the attestation infromation and issue a JWT-SVID. Workloads that are provisioned with JWT-SVIDs presents these credentials as software statements when using Dynamic Client Registration. The registration endpoint is configured to trust the SPIFFE issuer and can verify the JWT-SVID, as well as retrieve additional claims that represents metadata attested to by the SPIFFE issuer. Upon succesfull validation of the software statement, the registration endpoint completes the client registration. When SPIFFE JWT-SVIDs are used, the authorization server <span class="bcp14">MUST NOT</span> not provision additional client secrets, as the workload can use it's JWT-SVID or X.509 SVID to authenticate when initiating any OAuth flow. This removes the risk of additional secrets proliferation, reduces the overheads of seuring and managing secrets and improves the overall risk posture.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">The Secure Production Identity Framework For Everyone (SPIFFE) is a graduated Cloud Native Compute Foundation project designed to dynamically attest and verify workload identity (see <span>[<a href="#SPIFFE" class="cite xref">SPIFFE</a>]</span>. SPIFFE is commonly deployed to support large scale deployment of workloads in enterprise and cloud native compute environments. It ensures that every workload is attested and issued with X.509-SVID <span>[<a href="#SPIFFE_X509" class="cite xref">SPIFFE_X509</a>]</span> and JWT-SVID <span>[<a href="#SPIFFE_JWT" class="cite xref">SPIFFE_JWT</a>]</span> credentials. JWT-SVIDs contain a minimal set of claims, but may be extended to include additional claims, including those defined in the Dynamic Client Registration specification (see Section 2 of <span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span>). A SPIFFE issuer may attest a workload, add additional metadata based on the attestation information and issue a JWT-SVID. Workloads that are provisioned with JWT-SVIDs present these credentials as software statements when using Dynamic Client Registration. The registration endpoint is configured to trust the SPIFFE issuer and can verify the JWT-SVID, as well as retrieve additional claims that represents metadata attested to by the SPIFFE issuer. Upon succesful validation of the software statement, the registration endpoint completes the client registration. When SPIFFE JWT-SVIDs are used, the authorization server <span class="bcp14">MUST NOT</span> provision additional client secrets, as the workload can use its JWT-SVID or X.509 SVID to authenticate when initiating any OAuth flow. This removes the risk of additional secrets proliferation, reduces the overheads of securing and managing secrets and improves the overall risk posture.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="verifiable-credentials-vc">
@@ -1256,7 +1256,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-verifiable-credentials-vc">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-verifiable-credentials-vc" class="section-name selfRef">Verifiable Credentials (VC)</a>
         </h3>
-<p id="section-3.2-1">A Verifiable Credential (VC) is a tamper-evident digital assertion made by an issuer about a subject, which can be cryptographically verified by a third party. VCs follow an issuer–holder–verifier model where the issuer creates and signs the credential, the holder stores and presents it, and the verifier checks its authenticity and validity. VCs can be represented as a JSON Web Token (JWT) <span>[<a href="#VC-JWT" class="cite xref">VC-JWT</a>]</span>. A VC encoded as a JWT can serve as a software statement in dynamic client registration by including metadata as defined in Section 2 of <span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span> about the client as additional claims in the VC. Workloads that are provisioned with VCs presents these credentials as software statements when using Dynamic Client Registration. The registration endpoint is configured to trust the VC issuer and can verify the VC and use the additional metadata claims included by the issuer. Upon succesfull validation of the software statement, the registration endpoint completes the client registration. The use of Verifiable Credentials for client authentication is currently undefined and it is up to the authorization server to make a risk based decision on which authentication methods to use.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">A Verifiable Credential (VC) is a tamper-evident digital assertion made by an issuer about a subject, which can be cryptographically verified by a third party. VCs follow an issuer–holder–verifier model where the issuer creates and signs the credential, the holder stores and presents it, and the verifier checks its authenticity and validity. VCs can be represented as a JSON Web Token (JWT) <span>[<a href="#VC-JWT" class="cite xref">VC-JWT</a>]</span>. A VC encoded as a JWT can serve as a software statement in dynamic client registration by including metadata as defined in Section 2 of <span>[<a href="#RFC7591" class="cite xref">RFC7591</a>]</span> about the client as additional claims in the VC. Workloads that are provisioned with VCs present these credentials as software statements when using Dynamic Client Registration. The registration endpoint is configured to trust the VC issuer and can verify the VC and use the additional metadata claims included by the issuer. Upon succesful validation of the software statement, the registration endpoint completes the client registration. The use of Verifiable Credentials for client authentication is currently undefined and it is up to the authorization server to make a risk based decision on which authentication methods to use.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="spiffe-and-vc-deployment-models">
@@ -1264,8 +1264,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-spiffe-and-vc-deployment-mo">
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-spiffe-and-vc-deployment-mo" class="section-name selfRef">SPIFFE and VC Deployment Models</a>
         </h3>
-<p id="section-3.3-1">SPIFFE and VC address different deployment models. SPIFFE is more commonly deployed within large enterprise compute environments and provides high levels of assurance about a workload identity (in this case an OAuth client) along with a highly robust, low latency provsioning pipeline with built in credential lifecycel management to maximise availability. It is commonly deployed as an alternative to managing secrets.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.3-2">VCs provide an option for clients that are deployed outside an enterprise where SPIFFE is not deployed. These clients use VC issuance protocols to obtain VCs. The use of these protocols or any attstation that needs to be provided is out of scope for this specification.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+<p id="section-3.3-1">SPIFFE and VC address different deployment models. SPIFFE is more commonly deployed within large enterprise compute environments and provides high levels of assurance about a workload identity (in this case an OAuth client) along with a highly robust, low latency provisioning pipeline with built in credential lifecycle management to maximise availability. It is commonly deployed as an alternative to managing secrets.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">VCs provide an option for clients that are deployed outside an enterprise where SPIFFE is not deployed. These clients use VC issuance protocols to obtain VCs. The use of these protocols or any attestation that needs to be provided is out of scope for this specification.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="protocol-flow">
@@ -1304,13 +1304,13 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
             <p id="section-3.4-4.1.1">(A) The client registration endpoint establishes a trust relationship with the SPIFFE or VC Issuer. Once trust is established, the client registration endpoint can verify credentials issued by the SPIFFE or VC Issuer when presented as software statements.<a href="#section-3.4-4.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.4-4.2">
-            <p id="section-3.4-4.2.1">(B) The client is attested and credentialed by the SPIFFE Issuer <span>[<a href="#SPIFFE" class="cite xref">SPIFFE</a>]</span>, after vwhich it assigns a SPIFFE ID <span>[<a href="#SPIFFE_ID" class="cite xref">SPIFFE_ID</a>]</span>, along with SPIFFE credentials (e.g. JWT-SVID <span>[<a href="#SPIFFE_JWT" class="cite xref">SPIFFE_JWT</a>]</span> and X.509-SVID <span>[<a href="#SPIFFE_X509" class="cite xref">SPIFFE_X509</a>]</span>). Alternatively a VC issuer issues and provisions a VC. Issuers may include additional claims containing metadata (e.g the request URI).<a href="#section-3.4-4.2.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-4.2.1">(B) The client is attested and credentialed by the SPIFFE Issuer <span>[<a href="#SPIFFE" class="cite xref">SPIFFE</a>]</span>, after which it assigns a SPIFFE ID <span>[<a href="#SPIFFE_ID" class="cite xref">SPIFFE_ID</a>]</span>, along with SPIFFE credentials (e.g. JWT-SVID <span>[<a href="#SPIFFE_JWT" class="cite xref">SPIFFE_JWT</a>]</span> and X.509-SVID <span>[<a href="#SPIFFE_X509" class="cite xref">SPIFFE_X509</a>]</span>). Alternatively a VC issuer issues and provisions a VC. Issuers may include additional claims containing metadata (e.g the request URI).<a href="#section-3.4-4.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.4-4.3">
             <p id="section-3.4-4.3.1">(C) The client calls the client registration endpoint with the client's desired registration metadata, and the software statement (either a SPIFFE JWT-SVID or a VC).<a href="#section-3.4-4.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.4-4.4">
-            <p id="section-3.4-4.4.1">(D) The client registration endpoint verifies the SPIFFE JWT-SVID or VC that was presented as a sotware statement. It extracts any additional claims that should be used as metadata before registering the client. It may return additional metadata, client identifiers and optionally credentials if a VC is used. Clients with SPIFFE credentials <span class="bcp14">MUST</span> use the SPIFFE credentials when authenticating as part of an OAuth flow.<a href="#section-3.4-4.4.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-4.4.1">(D) The client registration endpoint verifies the SPIFFE JWT-SVID or VC that was presented as a software statement. It extracts any additional claims that should be used as metadata before registering the client. It may return additional metadata, client identifiers and optionally credentials if a VC is used. Clients with SPIFFE credentials <span class="bcp14">MUST</span> use the SPIFFE credentials when authenticating as part of an OAuth flow.<a href="#section-3.4-4.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1327,7 +1327,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-spiffe-issuer-and-client-re">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-spiffe-issuer-and-client-re" class="section-name selfRef">SPIFFE Issuer and Client Registration Endpoint Trust Relationship</a>
         </h3>
-<p id="section-4.1-1">SPIFFE makes provision for multiple Trust Domains, which are represented in the workload identifier. Trust Domains offers additional segmentation withing a SPIFFE deployment and each Trust Domain has its own keys for signing credentials. The OAuth authorization server may choose to trust one or more trust domains as defined in <span>[<a href="#SPIFFE-OAUTH-CLIENT-AUTH" class="cite xref">SPIFFE-OAUTH-CLIENT-AUTH</a>]</span>.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">SPIFFE makes provision for multiple Trust Domains, which are represented in the workload identifier. Trust Domains offers additional segmentation within a SPIFFE deployment and each Trust Domain has its own keys for signing credentials. The OAuth authorization server may choose to trust one or more trust domains as defined in <span>[<a href="#SPIFFE-OAUTH-CLIENT-AUTH" class="cite xref">SPIFFE-OAUTH-CLIENT-AUTH</a>]</span>.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="verifiable-credentials-and-client-registration-endpoint-trust-relationship">
@@ -1335,7 +1335,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-verifiable-credentials-and-">
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-verifiable-credentials-and-" class="section-name selfRef">Verifiable Credentials and Client Registration Endpoint Trust Relationship</a>
         </h3>
-<p id="section-4.2-1">TODO - Describe how trust relationship is established between VC Issuer and client registration endpoint.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-1">To validate Verifiable Credentials (VCs) during dynamic client registration, the client registration endpoint <span class="bcp14">MUST</span> be configured to trust the VC issuer’s public keys or a certificate chain anchored in a trusted root. This trust may be established statically or through a dynamic trust discovery mechanism. The registration endpoint <span class="bcp14">SHOULD</span> periodically refresh or revalidate the issuer’s key material against a trusted source to ensure ongoing integrity.
+When a client presents a VC, the registration endpoint verifies its signature using the trusted key material. It <span class="bcp14">MAY</span> also perform additional validation steps, such as checking the issuer’s identity, validating the credential’s expiration, and evaluating its revocation status using mechanisms such as decentralized revocation registries or issuer-specific status endpoints.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1345,21 +1346,64 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-client-registration-endpoin">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-client-registration-endpoin" class="section-name selfRef">Client Registration Endpoint Processing</a>
       </h2>
-<p id="section-5-1">TODO processing rules for the client registration endpoint.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<div id="spiffe-jwt-svids">
+<p id="section-5-1">The client registration endpoint <span class="bcp14">MUST</span> process software statements (e.g., SPIFFE JWT-SVIDs or Verifiable Credentials) as follows:
+1. Verify Authenticity and Integrity: Validate the software statement's signature using a trusted issuer key (e.g., SPIFFE Trust Bundle or VC issuer metadata).
+2. Validate Credential Expiry: Check that the credential is not expired and is within its valid time window.
+3. Evaluate Revocation Status (if applicable): Optionally verify revocation status via decentralized registries or issuer-specific status endpoints (for VCs).
+4. Extract and Validate Metadata Claims: Parse the credential and validate required claims needed for OAuth client registration (e.g., client_name, redirect_uris, grant_types).
+5. Register the Client: If all validations succeed, proceed with client registration using the verified metadata.
+6. Return Response: Send an appropriate OAuth client registration response.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<div id="spiffe-jwt-svids-processing-by-client-registration-endpoint">
 <section id="section-5.1">
-        <h3 id="name-spiffe-jwt-svids">
-<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-spiffe-jwt-svids" class="section-name selfRef">SPIFFE JWT-SVIDs</a>
+        <h3 id="name-spiffe-jwt-svids-processing">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-spiffe-jwt-svids-processing" class="section-name selfRef">SPIFFE JWT-SVIDs Processing by Client Registration Endpoint</a>
         </h3>
-<p id="section-5.1-1">TODO SPIFFE specific processing<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1-1">When a client presents a SPIFFE JWT-SVID as a software statement, the client registration endpoint <span class="bcp14">MUST</span>:<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-5.1-2">
+<li id="section-5.1-2.1">
+            <p id="section-5.1-2.1.1">Verify the Signature: Validate the JWT signature using the trusted key material from the SPIFFE Trust Bundle corresponding to the issuer’s trust domain.<a href="#section-5.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-5.1-2.2">
+            <p id="section-5.1-2.2.1">Validate Standard Claims: Ensure that the JWT includes and satisfies the following claims:<a href="#section-5.1-2.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.1-2.2.2.1">
+                <p id="section-5.1-2.2.2.1.1">iss: Must match the expected SPIFFE trust domain.<a href="#section-5.1-2.2.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-5.1-2.2.2.2">
+                <p id="section-5.1-2.2.2.2.1">sub: Must be a valid SPIFFE ID URI identifying the client.<a href="#section-5.1-2.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-5.1-2.2.2.3">
+                <p id="section-5.1-2.2.2.3.1">aud: Must include the registration endpoint’s audience value.<a href="#section-5.1-2.2.2.3.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-5.1-2.2.2.4">
+                <p id="section-5.1-2.2.2.4.1">exp and iat: Must be present and within acceptable bounds.<a href="#section-5.1-2.2.2.4.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+          <li id="section-5.1-2.3">
+            <p id="section-5.1-2.3.1">Extract and Validate Metadata Claims: Parse and validate any additional claims used to supply OAuth client metadata (e.g., client_name, redirect_uris, scope).<a href="#section-5.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-5.1-2.4">
+            <p id="section-5.1-2.4.1">Reject Invalid Credentials: Reject the registration if the JWT is expired, not correctly signed, or missing required claims.<a href="#section-5.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-5.1-2.5">
+            <p id="section-5.1-2.5.1">Register the Client (if all checks succeed): Upon successful validation, register the client using the extracted metadata and return a client identifier.
+The server <span class="bcp14">MUST NOT</span> issue a client secret, as the SPIFFE credential is used for subsequent authentication.<a href="#section-5.1-2.5.1" class="pilcrow">¶</a></p>
+</li>
+        </ol>
 </section>
 </div>
-<div id="vcs">
+<div id="vcs-processing-by-client-registration-endpoint">
 <section id="section-5.2">
-        <h3 id="name-vcs">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-vcs" class="section-name selfRef">VCs</a>
+        <h3 id="name-vcs-processing-by-client-re">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-vcs-processing-by-client-re" class="section-name selfRef">VCs Processing by Client Registration Endpoint</a>
         </h3>
-<p id="section-5.2-1">TODO VC specific processing<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">When a client presents a Verifiable Credential (VC) as a software statement, the client registration endpoint <span class="bcp14">MUST</span>:
+1. Verify the Credential Signature: Validate the cryptographic signature of the VC using the issuer’s trusted public key or certificate chain.
+2. Check Credential Validity: Ensure the VC has not expired and is not revoked, using appropriate status mechanisms such as decentralized revocation registries or issuer-hosted status endpoints.
+3. Extract and Validate Metadata Claims: Extract required client metadata claims (e.g., client_name, redirect_uris, scope) embedded in the VC, and validate their presence and format according to the authorization server’s policy.
+4. Reject Invalid Credentials: Reject the registration request if the VC fails any verification step, is malformed, or lacks required claims.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-2">Optionally, upon successful validation, the registration endpoint <span class="bcp14">MAY</span> provision additional credentials but <span class="bcp14">SHOULD</span> avoid provisioning traditional client secrets to minimize risk.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1374,7 +1418,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-client-secrets">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-client-secrets" class="section-name selfRef">Client Secrets</a>
         </h3>
-<p id="section-6.1-1">Dynamic client registration is designed to increase the ease with which clients are registered in large scale deployments. The increased use of client secrets amplifies the risks of secret theft and information compromise. This risk is further amplified is those secrets are long lived or infrequently rotated. Clients that are provisioned with SPIFFE JWT-SVIDs or X.509-SVIDs, and use this specification <span class="bcp14">MUST</span> use them not only as software statements, but also when authenticating to the authorization server in subsequent OAuth flows.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-1">Dynamic client registration is designed to increase the ease with which clients are registered in large scale deployments. The increased use of client secrets amplifies the risks of secret theft and information compromise. This risk is further amplified if those secrets are long lived or infrequently rotated. Clients that are provisioned with SPIFFE JWT-SVIDs or X.509-SVIDs, and use this specification <span class="bcp14">MUST</span> use them not only as software statements, but also when authenticating to the authorization server in subsequent OAuth flows.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.1-2">The use of VCs as client authentication mechansims in OAuth is undefine. Consequently, when using VCs as software statements, the authorization server <span class="bcp14">MAY</span> provision additional credentials, but <span class="bcp14">SHOULD</span> avoid provisioning client secrets to limit the risks of secret proliferation and the consequences of secret theft.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
