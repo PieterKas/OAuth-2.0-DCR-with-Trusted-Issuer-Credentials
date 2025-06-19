@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-17T01:48:23.104789+00:00",
+  "timestamp": "2025-06-19T01:48:25.196515+00:00",
   "repo": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
   "labels": [
     {
@@ -49,27 +49,142 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOO4aFus678CAY",
+      "title": "Add Ismael as a co-author",
+      "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/issues/2",
+      "state": "CLOSED",
+      "author": "PieterKas",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Add Ismael as co-author",
+      "createdAt": "2025-06-17T11:04:56Z",
+      "updatedAt": "2025-06-17T11:26:42Z",
+      "closedAt": "2025-06-17T11:26:42Z",
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOO4aFus678CPb",
+      "title": "Added processing rules",
+      "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/issues/3",
+      "state": "CLOSED",
+      "author": "PieterKas",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "PieterKas"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-17T11:05:18Z",
+      "updatedAt": "2025-06-17T11:31:21Z",
+      "closedAt": "2025-06-17T11:31:21Z",
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOO4aFus678Vuf",
+      "title": "Minor editorial changes/Typos",
+      "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/issues/5",
+      "state": "OPEN",
+      "author": "PieterKas",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-17T11:31:48Z",
+      "updatedAt": "2025-06-17T11:31:48Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
       "id": "PR_kwDOO4aFus6azAX5",
       "title": "Added edits and completed a couple of sections",
       "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/pull/1",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "issykazz",
-      "authorAssociation": "NONE",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "Added edits and completed a couple of sections",
+      "body": "Added edits and completed a couple of sections and fixed typos",
       "createdAt": "2025-06-16T22:28:15Z",
-      "updatedAt": "2025-06-16T22:28:15Z",
+      "updatedAt": "2025-06-17T11:31:08Z",
       "baseRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
       "baseRefName": "main",
       "baseRefOid": "d80b79e9a25850776400c8c81b5775bc1e9940fe",
       "headRepository": "issykazz/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
       "headRefName": "ismael/edits",
-      "headRefOid": "3c87397f56c4b33ce0acf129202a7c2caf165bfe",
+      "headRefOid": "4a6cb487c8c6ecb43acd2ab4d4d60d67c6ae2315",
+      "closedAt": "2025-06-17T11:31:08Z",
+      "mergedAt": "2025-06-17T11:31:08Z",
+      "mergedBy": "PieterKas",
+      "mergeCommit": {
+        "oid": "0a576ecd96a3e489e19d0b0b4423fa5d70eb7d79"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOO4aFus6a4Vt7",
+      "title": "Added Ismael as co-author",
+      "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/pull/4",
+      "state": "MERGED",
+      "author": "PieterKas",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-17T11:09:51Z",
+      "updatedAt": "2025-06-17T11:25:53Z",
+      "baseRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
+      "baseRefName": "main",
+      "baseRefOid": "d80b79e9a25850776400c8c81b5775bc1e9940fe",
+      "headRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
+      "headRefName": "PieterKas-patch-1",
+      "headRefOid": "eb43ded4be6360bc47618b69c9d3a17c81484f72",
+      "closedAt": "2025-06-17T11:25:53Z",
+      "mergedAt": "2025-06-17T11:25:53Z",
+      "mergedBy": "issykazz",
+      "mergeCommit": {
+        "oid": "aa863904569da25de89aeaa9b60f9b6139efde92"
+      },
+      "comments": [
+        {
+          "author": "issykazz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "LGTM",
+          "createdAt": "2025-06-17T11:24:09Z",
+          "updatedAt": "2025-06-17T11:24:09Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOO4aFus6a4pjR",
+      "title": "Editorial changes",
+      "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/pull/6",
+      "state": "OPEN",
+      "author": "PieterKas",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Small editorialchanges (see #5 )",
+      "createdAt": "2025-06-17T11:40:04Z",
+      "updatedAt": "2025-06-17T11:40:04Z",
+      "baseRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
+      "baseRefName": "main",
+      "baseRefOid": "0a576ecd96a3e489e19d0b0b4423fa5d70eb7d79",
+      "headRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
+      "headRefName": "PieterKas-patch-2",
+      "headRefOid": "24eb0c30ad015de1700e7b66c5f71c3b9909b55e",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
