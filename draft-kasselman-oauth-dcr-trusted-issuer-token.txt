@@ -4,8 +4,8 @@
 
 Web Authorization Protocol                                   I. Kazzouzi
 Internet-Draft                                                     SPIRL
-Intended status: Informational                              17 June 2025
-Expires: 19 December 2025
+Intended status: Informational                              23 June 2025
+Expires: 25 December 2025
 
 
  OAuth 2.0 Dynamic Client Registration with Trusted Issuer Credentials
@@ -14,19 +14,19 @@ Expires: 19 December 2025
 Abstract
 
    An OAuth 2.0 client requires specific information to interact with an
-   authorization server, including a client identifier issued by that
-   server.  The OAuth 2.0 Dynamic Client Registration Protocol [RFC7591]
-   defines a mechansim for dynamic client registration that removes the
-   need for manual registration.  This provides a more scalable
-   mechanism that can be used by clients that do not have a pre-existing
-   relationship with an authorization server, or where manually
-   configuring such relationships is prohibitive from a cost and scale
-   perspective.  Examples of deployments that benefit from dynamic
-   client registration includes modern cloud architectures where
-   microservices are created on demand to meet scale requirements or for
-   use with emerging protocols like the Model Context Protocol (MCP)
-   [MCP] which requires clients to register with an authorization server
-   even if they do not have a predefined relationship with the
+   authorization server, including a client identifier registered with
+   the authorization server.  The OAuth 2.0 Dynamic Client Registration
+   Protocol [RFC7591] defines a mechansim for dynamic client
+   registration that removes the need for manual registration.  This
+   provides a more scalable mechanism that can be used by clients that
+   do not have a pre-existing relationship with an authorization server,
+   or where manually configuring such relationships is prohibitive from
+   a cost and scale perspective.  Examples of deployments that benefit
+   from dynamic client registration includes modern cloud architectures
+   where microservices are created on demand to meet scale requirements
+   or for use with emerging protocols like the Model Context Protocol
+   (MCP) [MCP] which requires clients to register with an authorization
+   server even if they do not have a predefined relationship with the
    authorization server.  Similar to modern cloud native workloads, MCP
    service integrations may be ephemeral in nature.  The OAuth 2.0
    Dynamic Client Registration Protocol [RFC7591] defines a software
@@ -74,7 +74,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 December 2025.
+   This Internet-Draft will expire on 25 December 2025.
 
 Copyright Notice
 
@@ -95,8 +95,8 @@ Table of Contents
    1.  Introduction
    2.  Conventions and Definitions
    3.  Overview
-     3.1.  Secure Production Identity Framework For Everyone (SPIFFE)
-     3.2.  Verifiable Credentials (VC)
+     3.1.  SPIFFE Credentials as Software Statements
+     3.2.  Verifiable Credentials as Software Statements
      3.3.  SPIFFE and VC Deployment Models
      3.4.  Protocol Flow
    4.  Issuer and Client Registration Endpoint Trust Relationship
@@ -125,7 +125,7 @@ Table of Contents
    to scale and hard to maintain throughout the lifecycle of a client.
    These challenges are exacerbated by the increasingly dynamic nature
    of modern cloud native workloads that are instantiated as needed.  In
-   addition, emerging protocols like Model Context Protocol (MCP)
+   addition, emerging protocols like Model Context Protocol (MCP) [MCP]
    requires clients to register with an authorization server, but these
    clients may not always have a predefined relationship with the
    authorization server, and similar to modern cloud native workloads,
@@ -157,10 +157,10 @@ Table of Contents
 3.  Overview
 
    This specification describes the use of two credential types as
-   software statements, namely SPIFFE credentials and Verifiable
-   Credentials.
+   software statements, namely Secure Production Identity Framework For
+   Everyone (SPIFFE) credentials and Verifiable Credentials (VC).
 
-3.1.  Secure Production Identity Framework For Everyone (SPIFFE)
+3.1.  SPIFFE Credentials as Software Statements
 
    The Secure Production Identity Framework For Everyone (SPIFFE) is a
    graduated Cloud Native Compute Foundation project designed to
@@ -187,7 +187,7 @@ Table of Contents
    secrets proliferation, reduces the overheads of securing and managing
    secrets and improves the overall risk posture.
 
-3.2.  Verifiable Credentials (VC)
+3.2.  Verifiable Credentials as Software Statements
 
    A Verifiable Credential (VC) is a tamper-evident digital assertion
    made by an issuer about a subject, which can be cryptographically
