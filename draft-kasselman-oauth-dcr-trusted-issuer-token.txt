@@ -111,7 +111,8 @@ Table of Contents
      6.1.  Client Secrets
    7.  IANA Considerations
    8.  Normative References
-   Acknowledgments
+   Appendix A.  Acknowledgments
+   Appendix B.  Document History
    Authors' Addresses
 
 1.  Introduction
@@ -454,9 +455,16 @@ Table of Contents
               Verifiable Credentials using JSON Web Tokens", 14 June
               2023, <https://www.w3.org/TR/vc-jwt/>.
 
-Acknowledgments
+Appendix A.  Acknowledgments
 
    TODO acknowledge.
+
+Appendix B.  Document History
+
+   [[ To be removed from the final specification ]] -latest * Editorial
+   updates * Corrected markup to show all authors
+
+   -00 * Initial draft submitted to Datatracker
 
 Authors' Addresses
 
