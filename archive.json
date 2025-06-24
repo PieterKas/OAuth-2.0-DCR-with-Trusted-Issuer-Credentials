@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-19T01:48:25.196515+00:00",
+  "timestamp": "2025-06-24T01:49:03.811166+00:00",
   "repo": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
   "labels": [
     {
@@ -89,15 +89,15 @@
       "id": "I_kwDOO4aFus678Vuf",
       "title": "Minor editorial changes/Typos",
       "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "PieterKas",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-06-17T11:31:48Z",
-      "updatedAt": "2025-06-17T11:31:48Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-23T19:19:28Z",
+      "closedAt": "2025-06-23T19:19:28Z",
       "comments": []
     }
   ],
@@ -171,24 +171,26 @@
       "id": "PR_kwDOO4aFus6a4pjR",
       "title": "Editorial changes",
       "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/pull/6",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "PieterKas",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "Small editorialchanges (see #5 )",
       "createdAt": "2025-06-17T11:40:04Z",
-      "updatedAt": "2025-06-17T11:40:04Z",
+      "updatedAt": "2025-06-23T19:19:07Z",
       "baseRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
       "baseRefName": "main",
       "baseRefOid": "0a576ecd96a3e489e19d0b0b4423fa5d70eb7d79",
       "headRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
       "headRefName": "PieterKas-patch-2",
       "headRefOid": "24eb0c30ad015de1700e7b66c5f71c3b9909b55e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-06-23T19:19:06Z",
+      "mergedAt": "2025-06-23T19:19:06Z",
+      "mergedBy": "PieterKas",
+      "mergeCommit": {
+        "oid": "43af91e583b376ee1f00db1d430f1c551b742875"
+      },
       "comments": [],
       "reviews": []
     }
