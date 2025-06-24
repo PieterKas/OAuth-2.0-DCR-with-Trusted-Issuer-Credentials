@@ -2,10 +2,10 @@
 
 
 
-Web Authorization Protocol                                   I. Kazzouzi
-Internet-Draft                                                     SPIRL
-Intended status: Informational                              23 June 2025
-Expires: 25 December 2025
+Web Authorization Protocol                                  P. Kasselman
+Internet-Draft                                               I. Kazzouzi
+Intended status: Informational                                     SPIRL
+Expires: 26 December 2025                                   24 June 2025
 
 
  OAuth 2.0 Dynamic Client Registration with Trusted Issuer Credentials
@@ -74,7 +74,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 December 2025.
+   This Internet-Draft will expire on 26 December 2025.
 
 Copyright Notice
 
@@ -112,7 +112,7 @@ Table of Contents
    7.  IANA Considerations
    8.  Normative References
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -458,7 +458,12 @@ Acknowledgments
 
    TODO acknowledge.
 
-Author's Address
+Authors' Addresses
+
+   Pieter Kasselman
+   SPIRL
+   Email: pieter@spirl.com
+
 
    Ismael Kazzouzi
    SPIRL
