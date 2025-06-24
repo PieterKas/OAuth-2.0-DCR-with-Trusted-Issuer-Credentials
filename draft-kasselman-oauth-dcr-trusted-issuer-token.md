@@ -28,6 +28,7 @@ author:
     fullname: "Pieter Kasselman"
     organization: SPIRL
     email: "pieter@spirl.com"
+ -
     fullname: "Ismael Kazzouzi"
     organization: SPIRL
     email: "ismael@spirl.com"
