@@ -191,3 +191,13 @@ This document has no IANA actions.
 {:numbered="false"}
 
 TODO acknowledge.
+
+# Document History
+
+\[\[ To be removed from the final specification ]]
+-latest
+* Editorial updates
+* Corrected markup to show all authors
+
+-00
+* Initial draft submitted to Datatracker
