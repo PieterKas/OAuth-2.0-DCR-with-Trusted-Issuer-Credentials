@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-24T01:49:03.811166+00:00",
+  "timestamp": "2025-06-26T01:47:58.536274+00:00",
   "repo": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
   "labels": [
     {
@@ -190,6 +190,62 @@
       "mergedBy": "PieterKas",
       "mergeCommit": {
         "oid": "43af91e583b376ee1f00db1d430f1c551b742875"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOO4aFus6b0f72",
+      "title": "Fixed Markup - Authors not showing properly",
+      "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/pull/7",
+      "state": "MERGED",
+      "author": "PieterKas",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-24T09:07:18Z",
+      "updatedAt": "2025-06-24T09:08:07Z",
+      "baseRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
+      "baseRefName": "main",
+      "baseRefOid": "43af91e583b376ee1f00db1d430f1c551b742875",
+      "headRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
+      "headRefName": "PieterKas-patch-3",
+      "headRefOid": "adb646b4d4b0e53be4ff2a090866b3473f5dd231",
+      "closedAt": "2025-06-24T09:08:07Z",
+      "mergedAt": "2025-06-24T09:08:07Z",
+      "mergedBy": "PieterKas",
+      "mergeCommit": {
+        "oid": "47325016f613e322e1671c0bdb2960f24448c43a"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOO4aFus6b0luU",
+      "title": "Added Document History - 01",
+      "url": "https://github.com/PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials/pull/8",
+      "state": "MERGED",
+      "author": "PieterKas",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-24T09:13:32Z",
+      "updatedAt": "2025-06-24T09:19:05Z",
+      "baseRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
+      "baseRefName": "main",
+      "baseRefOid": "47325016f613e322e1671c0bdb2960f24448c43a",
+      "headRepository": "PieterKas/OAuth-2.0-DCR-with-Trusted-Issuer-Credentials",
+      "headRefName": "PieterKas-patch-4",
+      "headRefOid": "44d209bc61053bd58cc9246ccfe18d581586fb2a",
+      "closedAt": "2025-06-24T09:19:05Z",
+      "mergedAt": "2025-06-24T09:19:04Z",
+      "mergedBy": "PieterKas",
+      "mergeCommit": {
+        "oid": "6bf5e0f997b9222925d0ec49a96a161c129a7390"
       },
       "comments": [],
       "reviews": []
